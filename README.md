@@ -5,11 +5,18 @@ Configuration files of the VM "Ansible_Control_Node"
 # Example 1a: Deployment of NGINX Web Server
 
 Enter the directory "/etc/ansible":
-
+```bash
+$ cd /etc/ansible
+```
 
 To start the configuration you must setup the inventroy file, which can be in two formats:
   -  hosts(.ini) 
   -  hosts.yml
+
+The default file is "hosts", you can modify it by using the command:
+```bash
+$ sudo nano hosts
+```
 
 The file "hosts" should look similar to:
 ```bash
@@ -49,3 +56,104 @@ To verify that the VM "Ansible_Control_Node" can communicate with the specified 
 ```bash
 $ ansible all -m ping
 ```
+
+# Playbook nginx.yml
+
+Create a new directory, using the command:
+```bash
+$ sudo mkdir playbooks
+```
+
+Then enter the directory "playbooks":
+```bash
+$ cd playbooks
+```
+
+And now create the playbook "nginx.yml":
+```bash
+$ sudo nano nginx.yml
+```
+
+nginx.yml:
+```bash
+---
+- hosts: nginx-node
+  become: yes
+  tasks:
+    - name: "apt-get update"
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: "install nginx"
+      apt:
+        name: ['nginx']
+        state: latest
+```
+The playbook defines “become: yes”, which means the tasks will be executed with root privileges
+For proper execution, the ansible_sudo_pass variable must be included in the inventory file (hosts.ini or hosts.yml), which provides the root password for the managed VM user
+
+Modify the inventory file "hosts":
+```bash
+$ cd ..
+```
+```bash
+$ sudo nano hosts
+```
+
+File "hosts", add "ansible_sudo_pass=password":
+```bash
+nginx_node ansible_host=192.168.56.251 ansible_user=samanta ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa ansible_sudo_pass=password
+```
+If you are using the hosts.yml file, modify it as follows:
+```bash
+---
+all:
+ hosts:
+   nginx_node: 
+    ansible_host: 192.168.56.251
+    ansible_user: samanta
+    ansible_sudo_pass: password
+    ansible_ssh_private_key_file: /home/samanta/.ssh/id_rsa
+```
+
+Now you can run the playbook nginx.yml
+```bash
+$ cd playbooks
+```
+```bash
+$ ansible-playbook nginx.yml
+```
+
+Now you can open the VM "NGINX_Node" and connect to: http://localhost:80
+And you should see  the "Welcome to NGINX" page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
