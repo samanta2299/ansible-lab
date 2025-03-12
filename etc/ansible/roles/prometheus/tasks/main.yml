@@ -1,0 +1,31 @@
+---
+# tasks file for prometheus
+- name: "apt-get update"
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "Install & update prometheus"
+  apt:
+    name: ['prometheus']
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "Move the configuration file template"
+  template:
+    src: ../templates/prometheus.yml.j2
+    dest: "{{ prom_dir_config }}/prometheus.yml"
+    mode: '0755'
+    owner: prometheus
+    group: prometheus
+
+- name: "Restart prometheus"
+  service:
+    name: prometheus
+    state: restarted
+    enabled: yes
+
+- name: "Output Prometheus"
+  debug:
+    msg: "Prometheus is running. Connect from the Monitoring_Node to http://localhost:9090"
