@@ -1,0 +1,7 @@
+---
+- hosts: nginx_node
+  become: yes
+  vars_files:
+    - /etc/ansible/roles/nginx/vars/nginx_vars.yml
+  roles:
+    - nginx
