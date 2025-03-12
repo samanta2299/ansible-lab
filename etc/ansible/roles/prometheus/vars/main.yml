@@ -1,0 +1,6 @@
+---
+# vars file for prometheus
+prom_dir_config: "/etc/prometheus"
+scrape_interval: "10s"
+evaluation_interval: "10s"
+ansible_host_target: "192.168.56.251"
