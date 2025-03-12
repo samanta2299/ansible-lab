@@ -120,6 +120,43 @@ $ sudo nano main.yml
     state: restarted
 ```
 
+Move to the directory: "/etc/ansible/playbooks":
+
+```bash
+$ cd ../../../playbooks
+```
+
+```bash
+$ sudo nano nginx_playbook.yml
+```
+
+```bash
+---
+- hosts: nginx_node
+  become: yes
+  vars_files:
+    - /etc/ansible/roles/nginx/vars/nginx_vars.yml
+  roles:
+    - nginx
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
