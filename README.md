@@ -14,6 +14,6 @@ nginx_node  ansible_host=192.168.56.251 ansible_user=samanta ansible_ssh_private
 
 - nginx_node: is the alias of the Node that should be controlled using Ansible
 - ansible_host=192.168.56.251: is the IP of the Host-Only network Adapter. To retrieve this information, you must execute the following command from the terminal of the VM "Nginx_Node":
-  ```bash
+```bash
 ip -color a
 ```
