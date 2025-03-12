@@ -51,7 +51,7 @@
 ## [openSUSE]
 ## green.example.com
 ## blue.example.com
-
+#
 nginx_node ansible_host=192.168.56.251 ansible_user=samanta ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa ansible_sudo_pass=admin
 monitoring_node ansible_host=192.168.56.252 ansible_user=samanta ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa ansible_sudo_pass=admin
 
