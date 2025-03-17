@@ -56,7 +56,7 @@ To verify that the VM "Ansible_Control_Node" can communicate with the specified 
 ```bash
 $ ansible all -m ping
 ```
-![Output command ansible all -m ping](../images/ansible_ping.png)
+![Output command ansible all -m ping](../images/2.png)
 
 # Playbook nginx.yml
 
@@ -129,7 +129,7 @@ $ ansible-playbook nginx.yml
 Now you can open the VM "NGINX_Node" and connect to: http://localhost:80
 And you should see  the "Welcome to NGINX" page
 
-![Output command ansible all -m ping](../images/Welcome_to_NGINX.png)
+![](../images/Welcome_to_NGINX.png)
 
 
 
