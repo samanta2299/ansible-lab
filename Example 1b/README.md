@@ -2,19 +2,19 @@
 
 Create a new role, start from the the default directory:
 ```bash
-$ cd /etc/ansible/roles
+cd /etc/ansible/roles
 ```
 And execute the command:
 ```bash
-$ sudo ansible-galaxy init nginx
+sudo ansible-galaxy init nginx
 ```
 ```bash
-$ cd /nginx/templates/site.conf.j2
+cd /nginx/templates
 ```
 
-Modify the connfiguration file using Jinja2 Template:
+Create a file using Jinja2 Template:
 ```bash
-$ sudo nano site.conf.j2
+sudo nano site.conf.j2
 ```
 
 ```bash
@@ -30,11 +30,11 @@ server{
 
 Move to the directory vars, using the command: 
 ```bash
-$ cd ../vars
+cd ../vars
 ```
 Modify the nginx_vars.yml file:
 ```bash
-$ sudo nano nginx_vars.yml
+sudo nano nginx_vars.yml
 ```
 
 ```bash
@@ -46,12 +46,12 @@ server_name: nginx_static
 
 Move to the directory files, using the command: 
 ```bash
-$ cd ../files
+cd ../files
 ```
 
 Modify the index.html file:
 ```bash
-$ sudo nano index.html
+sudo nano index.html
 ```
 
 ```bash
@@ -69,12 +69,12 @@ $ sudo nano index.html
 ```
 Move to the directory files, using the command: 
 ```bash
-$ cd ../tasks
+cd ../tasks
 ```
 
 Modify the main.yml file:
 ```bash
-$ sudo nano main.yml
+sudo nano main.yml
 ```
 
 ```bash
@@ -123,11 +123,11 @@ $ sudo nano main.yml
 Move to the directory: "/etc/ansible/playbooks":
 
 ```bash
-$ cd ../../../playbooks
+cd ../../../playbooks
 ```
 
 ```bash
-$ sudo nano nginx_playbook.yml
+sudo nano nginx_playbook.yml
 ```
 
 ```bash
