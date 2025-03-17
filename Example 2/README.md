@@ -219,7 +219,7 @@ There are three types of metrics:
 - **Gauge:** value that can increase or decrease over time
 - **Counter:** metric that represents a monotonically increasing value
 - **Histogram:** represents the distribution of a set of values over time
-![Task image](images/1.png)
+![Task image](images/NGINX_metrics.png)
 
 
 
