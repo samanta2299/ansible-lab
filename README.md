@@ -56,7 +56,7 @@ To verify that the VM "Ansible_Control_Node" can communicate with the specified 
 ```bash
 $ ansible all -m ping
 ```
-![Output command ansible all -m ping](../images/2.png)
+![Output command ansible all -m ping](images/2.png)
 
 # Playbook nginx.yml
 
