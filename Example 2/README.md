@@ -3,4 +3,4 @@
 Installation and configuration of the Prometheus + Grafana stack on the Monitoring_Node VM to monitor the NGINX_Node VM (target node)
 
 
-![Task image](images/task_ex_".png)
+![Task image](images/task_ex_2.png)
