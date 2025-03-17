@@ -291,7 +291,7 @@ To make the graph easier to understand, in the legend enter {{device}}, so that 
 
 To **verify** that the network interfaces match, open the terminal of the NGINX_Node VM and run the following command:
 ```bash
-ip --color a
+ip -color a
 ```
 Where:
 enp0s3: NAT network interface
