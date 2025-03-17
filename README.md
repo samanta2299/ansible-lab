@@ -6,7 +6,7 @@ Configuration files of the VM "Ansible_Control_Node"
 
 Enter the directory "/etc/ansible":
 ```bash
-$ cd /etc/ansible
+cd /etc/ansible
 ```
 
 To start the configuration you must setup the inventroy file, which can be in two formats:
@@ -15,7 +15,7 @@ To start the configuration you must setup the inventroy file, which can be in tw
 
 The default file is "hosts", you can modify it by using the command:
 ```bash
-$ sudo nano hosts
+sudo nano hosts
 ```
 
 The file "hosts" should look similar to:
@@ -26,7 +26,7 @@ nginx_node  ansible_host=192.168.56.251 ansible_user=samanta ansible_ssh_private
 - nginx_node: is the alias of the Node we want to connect to via SSH using Ansible
 - ansible_host=192.168.56.251: specifies the IP address of the host-only network adapter of the target VM. Modify this address to match the actual IP of the VM "Nginx_Node", executing the followinf command from the terminal of the VM "NGINX_Node"
 ```bash
-$ ip -color a
+ip -color a
 ```
 - ansible_user=samanta: specifies the username used to connect to the VM "NGINX_Node" via SSH
 - ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa: defines the path to the private SSH key used for authentication when connecting to the target VM from the "Ansible_Control_Node". Ensure that the key has the correct permissions and corresponds to the public key on the "Nginx_Node"
@@ -54,7 +54,7 @@ host_key_checking = False simplifies the SSH connection (but increases security 
 
 To verify that the VM "Ansible_Control_Node" can communicate with the specified hosts, run the following command from the terminal:
 ```bash
-$ ansible all -m ping
+ansible all -m ping
 ```
 ![Output command ansible all -m ping](images/2.png)
 
@@ -62,17 +62,17 @@ $ ansible all -m ping
 
 Create a new directory, using the command:
 ```bash
-$ sudo mkdir playbooks
+sudo mkdir playbooks
 ```
 
 Then enter the directory "playbooks":
 ```bash
-$ cd playbooks
+cd playbooks
 ```
 
 And now create the playbook "nginx.yml":
 ```bash
-$ sudo nano nginx.yml
+sudo nano nginx.yml
 ```
 
 nginx.yml:
@@ -96,10 +96,10 @@ For proper execution, the ansible_sudo_pass variable must be included in the inv
 
 Modify the inventory file "hosts":
 ```bash
-$ cd ..
+cd ..
 ```
 ```bash
-$ sudo nano hosts
+sudo nano hosts
 ```
 
 File "hosts", add "ansible_sudo_pass=password":
@@ -120,10 +120,10 @@ all:
 
 Now you can run the playbook nginx.yml
 ```bash
-$ cd playbooks
+cd playbooks
 ```
 ```bash
-$ ansible-playbook nginx.yml
+ansible-playbook nginx.yml
 ```
 
 Now you can open the VM "NGINX_Node" and connect to: http://localhost:80
