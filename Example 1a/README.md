@@ -74,7 +74,7 @@ sudo nano nginx.yml
 nginx.yml:
 ```bash
 ---
-- hosts: nginx-node
+- hosts: nginx_node
   become: yes
   tasks:
     - name: "apt-get update"
