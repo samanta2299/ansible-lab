@@ -1,8 +1,0 @@
-server{
-   listen {{ port_number }};
-   root /var/www/{{ server_name }};
-   server_name {{ server_name }};
-   location / {
-        try_files $uri $uri/ =404;
-   }
-}
