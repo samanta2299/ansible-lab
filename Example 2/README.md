@@ -131,7 +131,7 @@ ansible_host_target: "192.168.56.251"
 ```
 Save and exit (CTRL + X, then Y)
 
-## Configure Grafana on MOnitoring_Node
+## Configure Grafana on Monitoring_Node
 Move to the directory /etc/ansible/roles/grafana/tasks:
 ```bash
 cd ../../grafana/tasks
