@@ -1,10 +1,14 @@
 # ansible-lab
 
 ## Example 1a: Deployment of an NGINX Web Server
-![](images/1.png)
+<p align="center">
+  <img src="images/1.png">
+</p>
 ## Example 1b: Configuration of an NGINX Web Server
 ## Example 2: Configuration of a Prometheus + Grafana Monitoring System
-![](images/2.jpg)
+<p align="center">
+  <img src="images/2.png">
+</p>
 
 ## Prerequisites
 - **VirtualBox** v7.1.6
@@ -23,9 +27,14 @@ ansible --version
 
 The VMs that will be controlled, **NGINX_Node** and **Monitoring_Node** should have NAT network interface and also "Host-Only" network interface
 To add a "Host-Only" network adapter follow the instruction in the figure below:
-![](images/add-host-only.png)
-![](images/dhcp.png)
-![](images/network.png)
+<p align="center">
+  <img src="images/add-host-only.png">
+</p>
+<p align="center">
+  <img src="images/dhcp.png">
+</p><p align="center">
+  <img src="images/network.png">
+</p>
 
 Then, on the VMs that we want to controll using the Ansible Control Node, shoul be installed **openssh-server**
 Open the terminal of the VM "NGINX_Node" and enter the following command:
@@ -55,7 +64,9 @@ ssh-keygen -t rsa -b 4096 -C "your@email.com"
 ```
 Press Enter for all subsequent prompts
 If successful, the output of the process should be similar to the image
-![](images/key.png)
+<p align="center">
+  <img src="images/key.png">
+</p>
 
 Verify the created keys using the following command:
 ```bash
@@ -73,7 +84,9 @@ Knowing that:
   ip -color a
   ```
   The IP address that we will be using, is the one related to the Host-Only network adapter, which is usually in the form 192.168.X.X (while the IP address of the NAT network adapter is typically in the form 10.0.X.X)
-![](images/ip.png)
+<p align="center">
+  <img src="images/ip.png">
+</p>
 
 The command in this example would be:
 ssh-copy-id samanta@192.168.56.250
