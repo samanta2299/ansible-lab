@@ -60,8 +60,8 @@ Copy the public key from the VM Ansible Control Node to the target VM by running
 ssh-copy-id <remote-host-user>@<remote-host-ip> 
 ```
 Knowing that:
-- usename-host: corrispondes to the user of the VM target, for e.g., NGINX_Node user nginx
-- ip-host: corrispondes to the IP of the VM target, for e.g., NGINX_Node IP 192.168.56.101
+- **remote-host-user:** corrispondes to the user of the VM target, for e.g., NGINX_Node user nginx
+- **remote-host-ip:** corrispondes to the IP of the VM target, for e.g., NGINX_Node IP 192.168.56.101
   To find the IP address of a VM, from its terminal run the command:
   ```bash
   ip -color a
