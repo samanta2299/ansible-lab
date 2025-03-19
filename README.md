@@ -4,7 +4,7 @@
 ![](images/1.png)
 ## Example 1b: Configuration of an NGINX Web Server
 ## Example 2: Configuration of a Prometheus + Grafana Monitoring System
-![](images/2.png)
+![](images/2.jpg)
 
 ## Prerequisites
 - **VirtualBox** v7.1.6
@@ -66,8 +66,8 @@ Copy the public key from the VM Ansible Control Node to the target VM by running
 ssh-copy-id <remote-host-user>@<remote-host-ip> 
 ```
 Knowing that:
-- **remote-host-user:** corrispondes to the user of the VM target, for e.g., NGINX_Node user nginx
-- **remote-host-ip:** corrispondes to the IP of the VM target, for e.g., NGINX_Node IP 192.168.56.101
+- **remote-host-user:** corrispondes to the user of the VM target, for e.g., NGINX_Node user samanta
+- **remote-host-ip:** corrispondes to the IP of the VM target, for e.g., NGINX_Node IP 192.168.56.250
   To find the IP address of a VM, from its terminal run the command:
   ```bash
   ip -color a
@@ -76,7 +76,7 @@ Knowing that:
 ![](images/ip.png)
 
 The command would be:
-ssh-copy-id nginx@192.168.56.101
+ssh-copy-id samanta@192.168.56.250
 
 
 
