@@ -75,7 +75,7 @@ Knowing that:
   The IP address that we will be using, is the one related to the Host-Only network adapter, which is usually in the form 192.168.X.X (while the IP address of the NAT network adapter is typically in the form 10.0.X.X)
 ![](images/ip.png)
 
-The command would be:
+The command in this example would be:
 ssh-copy-id samanta@192.168.56.250
 
 
