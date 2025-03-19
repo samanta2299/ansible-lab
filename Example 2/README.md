@@ -229,7 +229,7 @@ ansible-playbook monitoring_system.yml
 
 ## Verify the correct installation on the NGINX Node VM
 From the VM NGINX Node, connect to: http://localhost:9100/metrics
-And on this pae will be displayed the types of metrics that the node-exporter exposes to Prometheus
+And on this page will be displayed the types of metrics that the node-exporter exposes to Prometheus
 There are three types of metrics:
 - **Gauge:** value that can increase or decrease over time
 - **Counter:** metric that represents a monotonically increasing value
