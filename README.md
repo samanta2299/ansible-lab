@@ -1,11 +1,12 @@
 # ansible-lab
 
 ## Example 1a: Deployment of an NGINX Web Server
+## Example 1b: Configuration of an NGINX Web Server
+
 <p align="center">
   <img src="images/1.png">
 </p>
 
-## Example 1b: Configuration of an NGINX Web Server
 ## Example 2: Configuration of a Prometheus + Grafana Monitoring System
 <p align="center">
   <img src="images/2.jpg">
