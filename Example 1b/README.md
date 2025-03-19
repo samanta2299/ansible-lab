@@ -9,7 +9,7 @@ And execute the command:
 sudo ansible-galaxy init nginx
 ```
 ```bash
-cd /nginx/templates
+cd nginx/templates
 ```
 
 Create a file using Jinja2 Template:
