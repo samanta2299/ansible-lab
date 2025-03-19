@@ -5,9 +5,9 @@
 ## Example 2: Configuration of a Prometheus + Grafana Monitoring System
 
 ## Prerequisites
-**VirtualBox** v7.1.6
-**VM Ansible Control Node** with Ubuntu 24.04 OS or 22.04, that will be cloned to create 2 VMs: NGINX_Node and Monitoring_Node
-**VM Ansible Control Node** will have NAT network interface and Ansible installed using the following commands:
+- **VirtualBox** v7.1.6
+- **VM Ansible Control Node** with Ubuntu 24.04 OS or 22.04, that will be cloned to create 2 VMs: NGINX_Node and Monitoring_Node
+- **VM Ansible Control Node** will have NAT network interface and Ansible installed using the following commands:
 ```bash
 sudo apt update
 sudo apt install software-properties-common
