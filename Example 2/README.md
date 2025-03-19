@@ -75,11 +75,19 @@ Add the following configuration:
     update_cache: yes
     cache_valid_time: 3600
 
+- name: "Ensure Prometheus configuration directory exists"
+  file:
+    path: "{{ prom_dir_config }}"
+    state: directory
+    owner: prometheus
+    group: prometheus
+    mode: '0755'
+
 - name: "Move the configuration file template"
   template:
     src: ../templates/prometheus.yml.j2
     dest: "{{ prom_dir_config }}/prometheus.yml"
-    mode: '0755'
+    mode: '0644'
     owner: prometheus
     group: prometheus
 
