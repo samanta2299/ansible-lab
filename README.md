@@ -24,7 +24,7 @@ nginx_node  ansible_host=192.168.56.251 ansible_user=samanta ansible_ssh_private
 ```
 
 - nginx_node: is the alias of the Node we want to connect to via SSH using Ansible
-- ansible_host=192.168.56.251: specifies the IP address of the host-only network adapter of the target VM. Modify this address to match the actual IP of the VM "Nginx_Node", executing the followinf command from the terminal of the VM "NGINX_Node"
+- ansible_host=192.168.56.251: specifies the IP address of the host-only network adapter of the target VM. Modify this address to match the actual IP of the VM "Nginx_Node", executing the following command from the terminal of the VM "NGINX_Node"
 ```bash
 ip -color a
 ```
