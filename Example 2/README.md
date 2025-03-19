@@ -156,7 +156,7 @@ Modify the file main.yml:
 sudo nano main.yml
 ```
 ```bash
---
+---
 # tasks file for grafana
 - name: "Install gpg"
   apt:
