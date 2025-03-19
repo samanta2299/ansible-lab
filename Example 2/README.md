@@ -199,7 +199,7 @@ sudo nano main.yml
 
 - name: "Output Grafana"
   debug:
-    msg: "Grafana is running. Connect from the Monitoring_Node to http://127.0.0.1:3000. Username: admin, Password:>
+    msg: "Grafana is running. Connect from the Monitoring_Node to http://127.0.0.1:3000. Username: admin, Password: admin"
 ```
 Press CTRL + X to close the editor and enter y to save
 
