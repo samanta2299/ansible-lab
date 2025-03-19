@@ -128,6 +128,9 @@ Move to the directory roles/prometheus/vars:
 cd ../vars
 ```
 Edit the main.yml file:
+```bash
+sudo nano main.yml
+```
 **Note.** In the variable ansible_host_target insert the IP of the VM you want to monitor (NGINX_Node):
 ```bash
 ---
