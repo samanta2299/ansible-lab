@@ -45,7 +45,7 @@ Add the following configuration:
 
 - name: "Output Node-exporter"
   debug:
-    msg: "Connect from the Monitoring_Node to http://localhost:9100/metrics"
+    msg: "Connect from the NGINX_Node to http://localhost:9100/metrics"
 ```
 Save and exit (CTRL + X, then Y to confirm)
 
