@@ -4,6 +4,7 @@
 <p align="center">
   <img src="images/1.png">
 </p>
+
 ## Example 1b: Configuration of an NGINX Web Server
 ## Example 2: Configuration of a Prometheus + Grafana Monitoring System
 <p align="center">
