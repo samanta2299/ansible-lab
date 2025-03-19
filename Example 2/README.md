@@ -4,7 +4,8 @@ Installation and configuration of the Prometheus + Grafana stack on the Monitori
 
 ![Task image](images/task_ex_2.png)
 
-From the Ansible Control Node, move to the directory roles:
+## Create therequired Ansible roles
+From the Ansible Control Node, navigate to the roles directory:
 ```bash
 cd /etc/ansible/roles
 ```
@@ -19,40 +20,16 @@ sudo ansible-galaxy init prometheus
 sudo ansible-galaxy init node-exporter
 ```
 
-Move to the directory playbooks:
+## Configure Node Exporter on NGINX_Node
+Navigate to the **Node Exporter** tasks directory:
 ```bash
-cd ../playbooks
+cd node-exporter/tasks
 ```
-Create the playbook monitoring_system.yml:
+Edit the main.yml file:
 ```bash
-sudo nano monitoring_system.yml
+sudo nano main.yml
 ```
-```bash
----
-- hosts: nginx_node
-  become: yes
-  vars_files:
-    - /etc/ansible/roles/nginx/vars/nginx_vars.yml
-  roles:
-    - nginx
-    - node-exporter
-
-- hosts: monitoring_node
-  become: yes
-  vars_files:
-    - /etc/ansible/roles/prometheus/vars/main.yml
-  roles:
-    - prometheus
-    - grafana
-```
-
-Press CTRL + X to close the editor and enter y to save
-
-Move to the directory roles/node-exporter/tasks:
-```bash
-cd ../roles/node-exporter/tasks
-```
-Modify the file main.yml:
+Add the following configuration:
 ```bash
 ---
 # tasks file for node-exporter
@@ -70,13 +47,19 @@ Modify the file main.yml:
   debug:
     msg: "Connect from the Monitoring_Node to http://localhost:9100/metrics"
 ```
-Press CTRL + X to close the editor and enter y to save
+Save and exit (CTRL + X, then Y to confirm)
 
-Move to the directory roles/prometheus/tasks:
+## Configure Prometheus on Monitoring_Node
+### Configure Prometheus tasks
+Navigate to the Prometheus tasks directory:
 ```bash
 cd ../../prometheus/tasks
 ```
-Modify the file main.yml:
+Edit the main.yml file:
+```bash
+sudo nano main.yml
+```
+Add the following configuration:
 ```bash
 ---
 # tasks file for prometheus
@@ -110,15 +93,16 @@ Modify the file main.yml:
   debug:
     msg: "Prometheus is running. Connect from the Monitoring_Node to http://localhost:9090"
 ```
-Press CTRL + X to close the editor and enter y to save
+Save and exit (CTRL + X, then Y)
 
+### Configure Prometheus targets
 Move to the directory roles/prometheus/templates:
 ```bash
 cd ../templates
 ```
-Modify the file prometheus.yml.j2:
+Edit the prometheus.yml.j2 file:
 ```bash
---
+---
 global:
   scrape_interval: {{ scrape_interval }}
   evaluation_interval: {{ evaluation_interval }}
@@ -128,13 +112,14 @@ scrape_configs:
     static_configs:
       - targets: ['{{ ansible_host_target }}:9100']
 ```
-Press CTRL + X to close the editor and enter y to save
+Save and exit (CTRL + X, then Y)
 
+### Define Prometheus Variables
 Move to the directory roles/prometheus/vars:
 ```bash
 cd ../vars
 ```
-Modify the file main.yml:
+Edit the main.yml file:
 **Note.** In the variable ansible_host_target insert the IP of the VM you want to monitor (NGINX_Node):
 ```bash
 ---
@@ -144,17 +129,18 @@ scrape_interval: "10s"
 evaluation_interval: "10s"
 ansible_host_target: "192.168.56.251"
 ```
-Press CTRL + X to close the editor and enter y to save
+Save and exit (CTRL + X, then Y)
 
-
+## Configure Grafana on MOnitoring_Node
 Move to the directory /etc/ansible/roles/grafana/tasks:
 ```bash
 cd ../../grafana/tasks
 ```
-Modify the file main.yml:
+Edit main.yml:
 ```bash
 sudo nano main.yml
 ```
+Add the following configuration
 ```bash
 ---
 # tasks file for grafana
@@ -201,13 +187,42 @@ sudo nano main.yml
   debug:
     msg: "Grafana is running. Connect from the Monitoring_Node to http://127.0.0.1:3000. Username: admin, Password: admin"
 ```
-Press CTRL + X to close the editor and enter y to save
+Save and exit (CTRL + X, then Y)
 
-Move to the directory playbooks:
+
+## Create the Ansible Playbook
+Move to the playbooks directory:
 ```bash
 cd ../../../playbooks
 ```
-Exeecute the playbook monitoring_system.yml:
+Create the playbook monitoring_system.yml:
+```bash
+sudo nano monitoring_system.yml
+```
+Add the following configuration:
+```bash
+---
+- hosts: nginx_node
+  become: yes
+  vars_files:
+    - /etc/ansible/roles/nginx/vars/nginx_vars.yml
+  roles:
+    - nginx
+    - node-exporter
+
+- hosts: monitoring_node
+  become: yes
+  vars_files:
+    - /etc/ansible/roles/prometheus/vars/main.yml
+  roles:
+    - prometheus
+    - grafana
+```
+
+Save and exit (CTRL + X, then Y)
+
+### Execute the Ansible playbook monitoring_system.yml
+Run the playbook to install and configure everything automatically:
 ```bash
 ansible-playbook monitoring_system.yml
 ```
@@ -296,5 +311,28 @@ ip -color a
 Where:
 enp0s3: NAT network interface
 enp0s8: host-only network interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
