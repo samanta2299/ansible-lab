@@ -314,7 +314,7 @@ To create a new Dashboard, follow the highlighted boxes in the figure
 6. 	Enter the query
 ![Task image](images/11.png)
 
-7. **First query: incoming traffic**: irate(node_network_receive_bytes_total{job=”nginx_node”, instance=”192.168.56.251”}[1m])
+7. **First query: incoming traffic**: irate(node_network_receive_bytes_total{job="nginx_node", instance="192.168.56.251:9100"}[1m])
 - irate() transforms the data provided by count-type metrics so that the actual trend (both positive and negative) of the metric inside the parentheses is shown on the graph. To do this, besides the metric, an evaluation interval must also be specified, in this case, [1m], which represents one minute
 - node_network_receive_bytes_total and node_network_transmit_bytes_total are two count-type metrics that only provide monotonic incremental values, which does not allow for displaying a graph showing the traffic trend
 ![Task image](images/12.png)
@@ -323,7 +323,7 @@ In the "legend" section, select the "custom" option from the list and enter: tra
 8. 	Press the "Add query" button
 ![Task image](images/13.png)
 
-9. **Second query: outgoing traffic**: irate(node_network_transmit_bytes_total{job=”nginx_node”, instance=”192.168.56.251”}[1m])
+9. **Second query: outgoing traffic**: irate(node_network_transmit_bytes_total{job=”nginx_node”, instance=”192.168.56.251:9100”}[1m])
 In the legend, select the "custom" option from the list and enter: traffic OUT
 ![Task image](images/14.png)
 
