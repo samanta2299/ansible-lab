@@ -4,10 +4,28 @@ Installation and configuration of the Prometheus + Grafana stack on the Monitori
 
 ![Task image](images/task_ex_2.png)
 
+## Add Monitoring node to the inventory file hosts:
+```bash
+cd /etc/ansible
+sudo nano hosts
+```
+Add your vm monitoring node, the configuration should be similar to:
+```bash
+monitoring_node ansible_host=192.168.56.252 ansible_user=samanta ansible_ssh_key_file=/home/samanta/.ssh/id_rsa ansible_sudo_pass=admin
+```
+- **monitoring_node:** is the alias of the Node we want to connect to via SSH using Ansible
+- **ansible_host=192.168.56.251:** specifies the IP address of the host-only network adapter of the target VM. Modify this address to match the actual IP of the VM "Monitoring_Node", executing the following command from the terminal of the VM "Monitoring_Node"
+```bash
+ip -color a
+```
+- **ansible_user=samanta:** specifies the username used to connect to the VM "Monitoring_Node" via SSH
+- **ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa:** defines the path to the private SSH key used for authentication when connecting to the target VM from the "Ansible_Control_Node". Ensure that the key has the correct permissions and corresponds to the public key on the "Monitoring_Node"
+
+
 ## Create therequired Ansible roles
 From the Ansible Control Node, navigate to the roles directory:
 ```bash
-cd /etc/ansible/roles
+cd roles
 ```
 And create the roles:
 ```bash
