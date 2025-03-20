@@ -22,7 +22,7 @@ ip -color a
 - **ansible_ssh_private_key_file=/home/samanta/.ssh/id_rsa:** defines the path to the private SSH key used for authentication when connecting to the target VM from the "Ansible_Control_Node". Ensure that the key has the correct permissions and corresponds to the public key on the "Monitoring_Node"
 
 
-## Create therequired Ansible roles
+## Create the required Ansible roles
 From the Ansible Control Node, navigate to the roles directory:
 ```bash
 cd roles
